@@ -777,7 +777,7 @@ footer {
       </div>
     </div>
 
-    <form class="contact-form reveal" action="https://formspree.io/f/mojkakqj" method="POST">
+    <form class="contact-form reveal" action="mailto:ethan20295@gmail.com" method="GET" enctype="text/plain">
       <div class="form-row">
         <div class="form-group">
           <label class="form-label">Your Name</label>
@@ -796,7 +796,7 @@ footer {
         <label class="form-label">Message</label>
         <textarea name="message" class="form-textarea" placeholder="Tell me about the opportunity..."></textarea>
       </div>
-      <button type="submit" class="btn-send">Send Message ↗</button>
+          <button type="button" class="btn-send" onclick="sendEmail()">Send Message ↗</button>
     </form>
   </div>
 </section>
@@ -811,7 +811,17 @@ footer {
     <a href="/cdn-cgi/l/email-protection#fe9b8a969f90ccceccc7cbbe99939f9792d09d9193">Email</a>
   </div>
 </footer>
+    <script>
+     function sendEmail() {
+         const name    = document.querySelector('input[name="name"]').value;
+         const subject = document.querySelector('input[name="subject"]').value;
+         const message = document.querySelector('textarea[name="message"]').value;
 
+         const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=ethan20295@gmail.com&su=${encodeURIComponent(subject)}&body=${encodeURIComponent("From: " + name + "\n\n" + message)}`;
+
+         window.open(gmailUrl, '_blank');
+     }
+     </script>
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // Cursor
 const cur = document.getElementById('cur');
